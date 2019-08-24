@@ -48,4 +48,4 @@ fetch('https://api.github.com/users/' + name)
     createAvatar();
     createUrl();
   })
-  .catch(err => alert('Нет инфы :с'))
+  .catch(err => alert('Нет инфы!'))
