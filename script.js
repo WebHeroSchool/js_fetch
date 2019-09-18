@@ -11,10 +11,8 @@ function hello() {
   	preloader.classList.add('done');
     loader.classList.add('done');
   }
-  }, 2000);
+  }, 1000);
 }
-
-hello();
 
 let getUsername = (url) => {
     let splitOfUrl = url.split('=');
@@ -24,6 +22,10 @@ let getUsername = (url) => {
     }
     return getMyUsername;
 }
+
+let getUsernameFromPromise = new Promise((resolve, reject) => {
+    setTimeout(() => getUsername ? resolve(getUsername) : reject("name not found"), 3000)
+})
 
 let getDate = new Promise((resolve, reject) => setTimeout(() => date ? resolve(date) : reject('Date is not defined'), 2000)
 );
@@ -63,7 +65,7 @@ Promise.all([getRequest, getDate])
 })
 .then(res => {
     const date = document.createElement('h2');
-    date.innerHTML = `${dateForPromise}`;
+    date.innerHTML = `${dateForPromice}`;
     body.appendChild(date);
     hello();
 })
